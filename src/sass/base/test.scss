@@ -11,3 +11,32 @@
 .button > .spinner.is-hidden {
   display: none;
 }
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  padding: 8px;
+  margin-bottom: 24px;
+}
+
+.form-control {
+  width: 300px;
+  border-radius: 5px 0 0 5px;
+}
+
+.gallery {
+  display: flex;
+}
+
+.card-img-top {
+  height: 240px;
+}
+
+.container {
+  max-width: 1440px;
+}
+
+// .padding-card {
+//   padding-right: calc(var(--bs-gutter-x) * 0.2) !important;
+//   padding-left: calc(var(--bs-gutter-x) * 0.2) !important;
+// }

@@ -6,6 +6,9 @@ import ImagesService from './js/imageService';
 import LoadMoreBtn from './js/loadMoreBtn';
 import { clearElement } from './js/clearElement';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import SimpleLightbox from 'simplelightbox';
+
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const imagesService = new ImagesService();
 const loadMoreBtn = new LoadMoreBtn({
@@ -49,6 +52,9 @@ function getImages() {
       Notify.failure("We're sorry, but you've reached the end of search results.");
     }
   });
+
+  //   const qwe = document.querySelector('.gallery');
+  //   console.log(qwe.firstChild);
 
   return new Promise((resolve, reject) => {
     resolve();

@@ -7,20 +7,21 @@ export function createString({
   comments,
   downloads,
 }) {
-  return `<div class="photo-card">
-  <img src="${webformatURL}" alt="${tags}" loading="lazy" />
-  <div class="info">
-    <p class="info-item">
-      <b>Likes</b>${likes}
+  return `<div class="photo-card card">
+  <a href=${largeImageURL}><img src="${webformatURL}" alt="${tags}"  height="220" loading="lazy" class="card-img-top"  /></a>
+  
+  <div class="info row  row-cols-4">
+    <p style='font-size: 12px;' class="info-item col padding-card ">
+      <b>Likes</b> <br>${likes}
     </p>
-    <p class="info-item">
-      <b>Views</b>${views}
+    <p style='font-size: 12px;' class="info-item col padding-card">
+      <b>Views</b> <br>${views}
     </p>
-    <p class="info-item">
-      <b>Comments</b>${comments}
+    <p style='font-size: 12px;' class="info-item col padding-card">
+      <b>Comments</b> <br>${comments}
     </p>
-    <p class="info-item">
-      <b>Downloads</b>${downloads}
+    <p style='font-size: 12px;' class="info-item col padding-card">
+      <b>Downloads</b <br>${downloads}
     </p>
   </div>
 </div>`;
