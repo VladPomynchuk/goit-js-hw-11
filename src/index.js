@@ -16,6 +16,9 @@ const loadMoreBtn = new LoadMoreBtn({
   hidden: true,
 });
 
+searchForm.addEventListener('submit', onSubmit);
+loadMoreBtn.refs.button.addEventListener('click', getImages);
+
 function onSubmit(e) {
   e.preventDefault();
 
@@ -33,10 +36,6 @@ function onSubmit(e) {
   });
   loadMoreBtn.show();
 }
-
-searchForm.addEventListener('submit', onSubmit);
-loadMoreBtn.refs.button.addEventListener('click', getImages);
-
 function getImages() {
   loadMoreBtn.disable();
 
@@ -52,9 +51,6 @@ function getImages() {
       Notify.failure("We're sorry, but you've reached the end of search results.");
     }
   });
-
-  //   const qwe = document.querySelector('.gallery');
-  //   console.log(qwe.firstChild);
 
   return new Promise((resolve, reject) => {
     resolve();
