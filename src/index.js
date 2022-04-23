@@ -60,7 +60,7 @@
 //   });
 // }
 
-const BASE_URL = `https://restcountries.com/v3.1/name/sudan?fields=name%2Ccapital%2Cpopulation%2Cflags%2Clanguages`;
+const BASE_URL = `https://pixabay.com/api/?key=26934421-228fe3d802be0c8710ae14787&q=cat&image_type=photo&orientation=horizontal&safesearch=true&page=1&per_page=40`;
 
 fetch(BASE_URL)
   .then(r => r.json())
