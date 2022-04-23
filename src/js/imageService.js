@@ -15,7 +15,7 @@ export default class ImagesService {
   }
 
   async getImages() {
-    const BASE_URL = `https://pixabay.com/api?key=26934421-228fe3d802be0c8710ae14787&q=${this.searchQuery}&image_type=photo&orientation=horizontal&safesearch=true&page=${this.page}&per_page=${PER_PAGE}`;
+    const BASE_URL = `https://pixabay.com/api/?key=26934421-228fe3d802be0c8710ae14787&q=${this.searchQuery}&image_type=photo&orientation=horizontal&safesearch=true&page=${this.page}&per_page=${PER_PAGE}`;
 
     return fetch(BASE_URL)
       .then(r => r.json())
