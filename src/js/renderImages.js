@@ -4,6 +4,9 @@ import { refs } from './refs';
 const { gallery } = refs();
 
 export function renderImages(imagesArray) {
+  if (!imagesArray) {
+    return;
+  }
   const str = imagesArray.map(obj => createString(obj)).join('');
   gallery.insertAdjacentHTML('beforeend', str);
   const lightbox = new SimpleLightbox('.gallery a', {

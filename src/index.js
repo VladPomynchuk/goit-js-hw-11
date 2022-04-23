@@ -31,17 +31,20 @@ function onSubmit(e) {
   imagesService.resetHits();
   imagesService.resetPage();
   clearElement(gallery);
-  getImages().then(r => {
-    imagesService.searchSuccess();
-  });
+  getImages()
+    .then(r => {
+      imagesService.searchSuccess();
+    })
+    .catch(r => {
+      console.log('catch');
+    });
   loadMoreBtn.show();
 }
 function getImages() {
   loadMoreBtn.disable();
-
   imagesService.hitsCounter();
 
-  imagesService.getImages().then(imagesArray => {
+  return imagesService.getImages().then(imagesArray => {
     if (!imagesArray) {
       loadMoreBtn.hide();
     }
@@ -50,22 +53,17 @@ function getImages() {
     loadMoreBtn.enable();
 
     if (imagesService.hitsValue >= imagesService.totalHitsValue) {
-      loadMoreBtn.hide();
-      Notify.failure("We're sorry, but you've reached the end of search results.");
+      if (imagesArray) {
+        loadMoreBtn.hide();
+        Notify.failure("We're sorry, but you've reached the end of search results.");
+      }
     }
-  });
-
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
+    const qwe = new Promise((resolve, reject) => {
+      if (!imagesArray) {
+        return reject();
+      }
       resolve();
-    }, 300);
+    });
+    return qwe;
   });
 }
-
-// const BASE_URL = `https://pixabay.com/api/?key=26934421-228fe3d802be0c8710ae14787&q=cat&image_type=photo&orientation=horizontal&safesearch=true&page=1&per_page=40`;
-
-// fetch(BASE_URL)
-//   .then(r => r.json())
-//   .then(qwe => {
-//     console.log(qwe);
-//   });
