@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-axios.defaults.baseURL = 'https://pixabay.com';
+// axios.defaults.baseURL = 'https://pixabay.com';
 // axios.defaults.headers.post['Content-Type'] = 'application/json; charset=utf-8';
 
 const PER_PAGE = 40;
@@ -15,6 +15,7 @@ export default class ImagesService {
   }
 
   async getImages() {
+    const BASE_URL = `https://pixabay.com/api?key=26934421-228fe3d802be0c8710ae14787&q=${this.searchQuery}&image_type=photo&orientation=horizontal&safesearch=true&page=${this.page}&per_page=${PER_PAGE}`;
     const params = {
       params: {
         key: '26934421-228fe3d802be0c8710ae14787',
@@ -28,7 +29,7 @@ export default class ImagesService {
     };
 
     try {
-      const fetchImages = await axios.get('/api', params);
+      const fetchImages = await axios.get(BASE_URL);
       const imagesArray = await fetchImages.data.hits;
 
       if (imagesArray.length === 0) {
@@ -37,7 +38,7 @@ export default class ImagesService {
         );
       }
       this.incrementPage();
-
+      console.log('imageServise() imagesArray:', imagesArray);
       this.totalHits = fetchImages.data.totalHits;
       return imagesArray;
     } catch (error) {
