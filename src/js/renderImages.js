@@ -16,7 +16,9 @@ export function renderImages(imagesArray) {
 
   lightbox.refresh();
 
-  scroll();
+  if (gallery.childElementCount > 40) {
+    scroll();
+  }
 }
 
 function scroll() {
