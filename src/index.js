@@ -42,6 +42,9 @@ function getImages() {
   imagesService.hitsCounter();
 
   imagesService.getImages().then(imagesArray => {
+    if (!imagesArray) {
+      loadMoreBtn.hide();
+    }
     renderImages(imagesArray);
 
     loadMoreBtn.enable();
