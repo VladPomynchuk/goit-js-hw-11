@@ -22,7 +22,7 @@ loadMoreBtn.refs.button.addEventListener('click', getImages);
 function onSubmit(e) {
   e.preventDefault();
 
-  imagesService.query = e.currentTarget.elements.searchQuery.value;
+  imagesService.query = e.currentTarget.elements.searchQuery.value.trim();
 
   if (imagesService.query === '') {
     return alert('Please, enter a query');
