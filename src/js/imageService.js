@@ -2,7 +2,7 @@ import axios from 'axios';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 axios.defaults.baseURL = 'https://pixabay.com';
-axios.defaults.headers.post['Content-Type'] = 'application/json; charset=utf-8';
+// axios.defaults.headers.post['Content-Type'] = 'application/json; charset=utf-8';
 
 const PER_PAGE = 40;
 
